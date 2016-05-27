@@ -1,9 +1,13 @@
 <div class="panel-group">
-  <div class="panel panel-default panel-info" ng-repeat="element in items | filter: searchText">
-    <div class="panel-body">
-      <h4>{{element.firstName}} {{element.lastName}}</h4>
-      <p>{{element.address}}</p>
-      <p>{{element.phoneNumber}}</p>
+  <div ng-repeat="element in items | filter: searchText">
+    <div class="panel panel-default panel-info">
+      <div class="panel-body">
+        <div class="col-xs-2">{{element.firstName}} {{element.lastName}}</div>
+        <div class="col-xs-4">{{element.address}}</div>
+        <div class="col-xs-2">{{element.phoneNumber}}</div>
+        <div class="col-xs-1"><button class="btn btn-info"><a href="#/items/{{element.id}}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button></div>
+        <div class="col-xs-1"><button class="btn btn-danger" ng-click="deleteContact(element.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>
+      </div>
     </div>
   </div>
 </div>

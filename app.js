@@ -25,3 +25,9 @@ app.controller("addressBookCtrl", function($scope){
 	}
 });
 
+//plan:
+//1. change into firebase
+//2.has post, update, delete functions
+//3.change into factory
+//4.move navbar out
+
