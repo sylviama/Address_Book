@@ -17,10 +17,6 @@ app.config(function($routeProvider){
     templateUrl:"./login.html",
     controller:"loginCtrl"
   })
-  .when("/items/search",{
-    templateUrl:"./search.html",
-    controller:"searchCtrl"
-  })
   .when("/items/list", {
     templateUrl: "./listView.html",
     controller:"listViewCtrl"

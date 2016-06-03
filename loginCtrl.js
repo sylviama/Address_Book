@@ -38,7 +38,7 @@ app.controller("loginCtrl", function($scope, $location, authFactory){
   $scope.login=function(){
     authFactory.authenticate($scope.account).then(function(){
       $scope.hasUser=true;
-      $location.url("/items/search");
+      $location.url("/items/list");
       // $scope.apply();
     })
   };
