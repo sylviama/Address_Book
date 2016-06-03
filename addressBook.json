@@ -1,20 +1,22 @@
-{
-  "contact1":{
-    "firstName":"Sylvia",
-    "lastName":"Ma",
-    "phoneNumber":9993339999,
-    "address":"1010 Vintage Rd, Nashville, TN"
-  },
-  "contact2":{
-    "firstName":"Al",
-    "lastName":"Coury",
-    "phoneNumber":9993889999,
-    "address":"223 Vintage Rd, Nashville, TN"
-  },
-  "contact3":{
-    "firstName":"Zoe",
-    "lastName":"Barn",
-    "phoneNumber":9003339999,
-    "address":"10 Vintage Rd, Nashville, TN"
+{"contacts":
+  {
+    "contact1":{
+      "firstName":"Sylvia",
+      "lastName":"Ma",
+      "phoneNumber":9993339999,
+      "address":"1010 Vintage Rd, Nashville, TN"
+    },
+    "contact2":{
+      "firstName":"Al",
+      "lastName":"Coury",
+      "phoneNumber":9993889999,
+      "address":"223 Vintage Rd, Nashville, TN"
+    },
+    "contact3":{
+      "firstName":"Zoe",
+      "lastName":"Barn",
+      "phoneNumber":9003339999,
+      "address":"10 Vintage Rd, Nashville, TN"
+    }
   }
 }

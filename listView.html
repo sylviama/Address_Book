@@ -1,8 +1,18 @@
 <div class="panel-group">
+  <div class="panel panel-default panel-info">
+      <div class="panel-body">
+        <div class="col-xs-4"><b>Name</b></div>
+        <div class="col-xs-4"><b>Address</b></div>
+        <div class="col-xs-2"><b>Phone Number</b></div>
+        <div class="col-xs-1"><b>Edit</b></div>
+        <div class="col-xs-1"><b>Delete</b></div>
+      </div>
+    </div><br>
+
   <div ng-repeat="element in items | filter: searchText">
     <div class="panel panel-default panel-info">
       <div class="panel-body">
-        <div class="col-xs-2">{{element.firstName}} {{element.lastName}}</div>
+        <div class="col-xs-4">{{element.firstName}} {{element.lastName}}</div>
         <div class="col-xs-4">{{element.address}}</div>
         <div class="col-xs-2">{{element.phoneNumber}}</div>
         <div class="col-xs-1"><button class="btn btn-info"><a href="#/items/{{element.id}}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button></div>

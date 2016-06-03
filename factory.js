@@ -1,17 +1,20 @@
-app.factory("contactStorage", function($q, $http){
+app.factory("contactStorage", function($q, $http, authFactory){
+  
   var newObj={
     firstName:"",
     lastName:"",
     address:"",
-    phoneNumber:""
+    phoneNumber:"",
+    uid:""
   };
 
   //get
   var listContacts=function(){
+    var user=authFactory.getUser();
+
     return $q(function(resolve, reject){
       var items=[];
-
-      $http.get("https://sylviaaddressbook.firebaseio.com/.json")
+      $http.get(`https://sylviaaddressbook.firebaseio.com/contacts.json?orderBy="uid"&equalTo="${user.uid}"`)
     .success(function(response){
       Object.keys(response).forEach(function(key){
         response[key].id=key;
@@ -26,7 +29,7 @@ app.factory("contactStorage", function($q, $http){
   var deleteContacts=function(itemId){
     return $q(function(resolve,reject){
 
-      $http.delete("https://sylviaaddressbook.firebaseio.com/"+itemId+".json")
+      $http.delete("https://sylviaaddressbook.firebaseio.com/contacts/"+itemId+".json")
       .success(function(response){
         resolve(response);
       })
@@ -35,15 +38,19 @@ app.factory("contactStorage", function($q, $http){
 
   //add New/post
   var addNew=function(newObj){
+    var user=authFactory.getUser();
+    console.log(user.uid);
+
     return $q(function(resolve,reject){
 
       $http.post(
-        "https://sylviaaddressbook.firebaseio.com/.json",
+        "https://sylviaaddressbook.firebaseio.com/contacts.json",
         JSON.stringify({
           firstName:newObj.firstName,
           lastName:newObj.lastName,
           address:newObj.address,
-          phoneNumber:newObj.phoneNumber
+          phoneNumber:newObj.phoneNumber,
+          uid:user.uid
         }))
       .success(function(response){
         resolve(response);
@@ -55,7 +62,7 @@ app.factory("contactStorage", function($q, $http){
   var getSingle=function(itemId){
     return $q(function(resolve,reject){
       $http.get(
-        "https://sylviaaddressbook.firebaseio.com/"+itemId+".json")
+        "https://sylviaaddressbook.firebaseio.com/contacts/"+itemId+".json")
       .success(function(response){
           resolve(response)
         })
@@ -64,14 +71,17 @@ app.factory("contactStorage", function($q, $http){
 
   //edit: put
   var putContact=function(itemId,newObj){
+    var user=authFactory.getUser();
+
     return $q(function(resolve,reject){
       $http.put(
-        "https://sylviaaddressbook.firebaseio.com/"+itemId+".json",
+        "https://sylviaaddressbook.firebaseio.com/contacts/"+itemId+".json",
         JSON.stringify({
           firstName:newObj.firstName,
           lastName:newObj.lastName,
           address:newObj.address,
-          phoneNumber:newObj.phoneNumber
+          phoneNumber:newObj.phoneNumber,
+          uid:user.uid
         })
         ).success(function(response){
           resolve(response);

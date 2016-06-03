@@ -31,3 +31,9 @@ app.controller("addressBookCtrl", function($scope){
 //3.change into factory
 //4.move navbar out
 
+//login, register page
+//nav bar button go with it
+//firebase authority
+
+
+

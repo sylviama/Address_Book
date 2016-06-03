@@ -1,0 +1,22 @@
+{
+  "name": "addressBook",
+  "homepage": "https://github.com/sylviama/Address_Book",
+  "authors": [
+    "Sylvia Ma <xiangwma@umich.edu>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.5",
+    "firebase": "^3.0.3",
+    "angularfire": "^2.0.0"
+  }
+}
